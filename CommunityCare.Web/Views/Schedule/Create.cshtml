@@ -1,0 +1,67 @@
+﻿@model ScheduleViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Schedule</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+         @*   <div class="form-group">
+                <label asp-for="UserId" class="control-label">User Id</label>
+                <input asp-for="UserId" class="form-control"></input>
+             <option disabled selected> Select a user</option>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="ScheduleTime" class="control-label"> Schedule Time</label>
+                <input asp-for="ScheduleTime" class="form-control" />
+                <span asp-validation-for="ScheduleTime" class="text-danger"></span>
+            </div>
+           @* <div class="form-group">
+                <label asp-for="HomeLocation" class="control-label"></label>
+                <input asp-for="HomeLocation" class="form-control" />
+                <span asp-validation-for="HomeLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HomeName" class="control-label"></label>
+                <input asp-for="HomeName" class="form-control" />
+                <span asp-validation-for="HomeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VolunteerName" class="control-label"></label>
+                <input asp-for="VolunteerName" class="form-control" />
+                <span asp-validation-for="VolunteerName" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="ScheduleNote" class="control-label"> Schedule Note</label>
+                <input asp-for="ScheduleNote" class="form-control" />
+                <span asp-validation-for="ScheduleNote" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ResidentName" class="control-label">Resident Name</label>
+                <input asp-for="ResidentName" class="form-control" />
+                <span asp-validation-for="ResidentName" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

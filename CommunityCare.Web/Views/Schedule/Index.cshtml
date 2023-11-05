@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CommunityCare.Core.Models.Schedule>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Schedules list</h1>
+
+<p>
+   
+
+    <a asp-condition=@(User.IsInRole("admin") || User.IsInRole("institution")) a asp-action="Create"><input type="button" class="btn btn-primary" value="Create New"/></a>
+    <a asp-action="IndexForActiveSchedules"><input type="button" class="btn btn-primary" value= "View open Schedules only" /></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ScheduleTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScheduleNote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScheduleTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScheduleNote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                <a asp-condition=@(User.IsInRole("admin") || User.IsInRole("institution")) asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-condition=@(User.IsInRole("admin") || User.IsInRole("institution")) asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                <a asp-condition=@(User.IsInRole("volunteer") || User.IsInRole("admin")) asp-action="Apply" asp-route-id="@item.Id">Apply</a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

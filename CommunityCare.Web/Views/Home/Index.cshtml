@@ -1,0 +1,28 @@
+﻿<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p><br />
+       Welcome to our wee little community where we are comitted to helping the elderly and vulnerable in the society by giving back
+       what they sepent their whole lives giving to us; LOVE, TIME and CARE! 
+   </p>
+</div>
+
+
+<!-- card is only visible when authorised - note use of asp-authorize -->
+<div>
+    <div class="card-body">
+        
+
+        <!-- p elements are only rendered when user has specified role(s) -->
+        <p asp-roles="admin">You are presenly signed in as an administrator.</p>
+        <p asp-roles="institution">You are presently signed in as an Instituion. Feel free to create schedules you need.<br /></p>
+        <p asp-roles="volunteer">You are presently signed in as a volunteer. You can now browse listed schedules and apply away.<br /> 
+            We have also added a search function to help find your interests faster ;). <br/></p>
+        <p asp-roles="volunteer,institution">Access to some functions of the website might be restricted till you are verified by an admin. <br /> 
+            Please allow up to 3 working days for verification. Also ensure that you have your correct AccessNI or Company Registration Number. 
+            If you have any concern, feel free to contact the admin. Details can be found on the privacy page.
+            </p>
+
+    </div>
+</div>
+
+
